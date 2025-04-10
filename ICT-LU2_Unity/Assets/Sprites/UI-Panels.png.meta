@@ -125,13 +125,13 @@ TextureImporter:
       name: UI-Panels_0
       rect:
         serializedVersion: 2
-        x: 221
-        y: 695
-        width: 589
-        height: 254
+        x: 234
+        y: 704
+        width: 556
+        height: 236
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 60, y: 58, z: 59, w: 55}
       customData: 
       outline: []
       physicsShape: []
@@ -147,13 +147,13 @@ TextureImporter:
       name: UI-Panels_1
       rect:
         serializedVersion: 2
-        x: 221
-        y: 248
-        width: 583
-        height: 200
+        x: 234
+        y: 262
+        width: 557
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 36, y: 36, z: 36, w: 34}
       customData: 
       outline: []
       physicsShape: []
@@ -169,13 +169,13 @@ TextureImporter:
       name: UI-Panels_2
       rect:
         serializedVersion: 2
-        x: 219
-        y: 465
-        width: 585
-        height: 201
+        x: 233
+        y: 477
+        width: 558
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 36, y: 35, z: 40, w: 36}
       customData: 
       outline: []
       physicsShape: []
@@ -191,13 +191,13 @@ TextureImporter:
       name: UI-Panels_3
       rect:
         serializedVersion: 2
-        x: 292
-        y: 65
-        width: 449
-        height: 169
+        x: 305
+        y: 77
+        width: 415
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 34, y: 31, z: 32, w: 32}
       customData: 
       outline: []
       physicsShape: []

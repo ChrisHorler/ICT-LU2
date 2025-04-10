@@ -181,7 +181,7 @@ TextureImporter:
         width: 170
         height: 193
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,7 +203,7 @@ TextureImporter:
         width: 163
         height: 188
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -220,12 +220,12 @@ TextureImporter:
       name: Base-SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 403
+        x: 418
         y: 760
-        width: 226
+        width: 211
         height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,10 +244,10 @@ TextureImporter:
         serializedVersion: 2
         x: 628
         y: 767
-        width: 146
+        width: 143
         height: 244
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,7 +269,7 @@ TextureImporter:
         width: 187
         height: 182
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -291,7 +291,7 @@ TextureImporter:
         width: 198
         height: 170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -313,7 +313,7 @@ TextureImporter:
         width: 167
         height: 170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -335,7 +335,7 @@ TextureImporter:
         width: 120
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -357,7 +357,7 @@ TextureImporter:
         width: 115
         height: 166
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,10 +376,10 @@ TextureImporter:
         serializedVersion: 2
         x: 747
         y: 599
-        width: 275
+        width: 236
         height: 178
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,7 +401,7 @@ TextureImporter:
         width: 215
         height: 179
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -423,7 +423,7 @@ TextureImporter:
         width: 163
         height: 164
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -445,7 +445,7 @@ TextureImporter:
         width: 251
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -462,12 +462,12 @@ TextureImporter:
       name: Base-SpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 684
+        x: 682
         y: 327
-        width: 338
-        height: 266
+        width: 288
+        height: 267
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -489,7 +489,7 @@ TextureImporter:
         width: 170
         height: 170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -511,7 +511,7 @@ TextureImporter:
         width: 163
         height: 170
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -533,7 +533,7 @@ TextureImporter:
         width: 178
         height: 173
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -552,10 +552,10 @@ TextureImporter:
         serializedVersion: 2
         x: 623
         y: 48
-        width: 343
-        height: 265
+        width: 346
+        height: 271
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -572,12 +572,12 @@ TextureImporter:
       name: Base-SpriteSheet_18
       rect:
         serializedVersion: 2
-        x: 42
+        x: 39
         y: 64
-        width: 171
-        height: 153
+        width: 177
+        height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -599,7 +599,7 @@ TextureImporter:
         width: 163
         height: 219
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -621,7 +621,7 @@ TextureImporter:
         width: 178
         height: 178
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -638,7 +638,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: da63c01201010882490b6b4fec1a87d4
     internalID: 0
     vertices: []
     indices: 
@@ -647,7 +647,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Base-SpriteSheet_0: 7400930341155470753
+      Base-SpriteSheet_1: 5169105270027390460
+      Base-SpriteSheet_10: -5534622042210177791
+      Base-SpriteSheet_11: -7098787686542623637
+      Base-SpriteSheet_12: 8177577358402883663
+      Base-SpriteSheet_13: -262734169098887671
+      Base-SpriteSheet_14: 7647523518800144705
+      Base-SpriteSheet_15: -5645652280254650665
+      Base-SpriteSheet_16: -4281177281854235466
+      Base-SpriteSheet_17: 2800344384414078577
+      Base-SpriteSheet_18: 6967690007772726733
+      Base-SpriteSheet_19: 1006613759742203033
+      Base-SpriteSheet_2: -4393940562409440244
+      Base-SpriteSheet_20: -409832137149132939
+      Base-SpriteSheet_3: -3674551241788036843
+      Base-SpriteSheet_4: -7533243226839334957
+      Base-SpriteSheet_5: -8451230124100869578
+      Base-SpriteSheet_6: 972145558487274739
+      Base-SpriteSheet_7: 6232226887292233168
+      Base-SpriteSheet_8: 3329631366907347374
+      Base-SpriteSheet_9: -3633730950297768012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
