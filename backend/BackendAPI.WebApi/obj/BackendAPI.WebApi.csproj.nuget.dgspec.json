@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/sammt/Repositories/ICT-LU2/backend/BackendAPI.WebApi/BackendAPI.WebApi.csproj": {}
+  },
+  "projects": {
+    "/home/sammt/Repositories/ICT-LU2/backend/BackendAPI.WebApi/BackendAPI.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/sammt/Repositories/ICT-LU2/backend/BackendAPI.WebApi/BackendAPI.WebApi.csproj",
+        "projectName": "BackendAPI.WebApi",
+        "projectPath": "/home/sammt/Repositories/ICT-LU2/backend/BackendAPI.WebApi/BackendAPI.WebApi.csproj",
+        "packagesPath": "/home/sammt/.nuget/packages/",
+        "outputPath": "/home/sammt/Repositories/ICT-LU2/backend/BackendAPI.WebApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/sammt/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.66, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.115/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
