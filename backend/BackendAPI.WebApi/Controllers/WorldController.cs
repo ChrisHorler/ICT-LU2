@@ -29,7 +29,7 @@ namespace BackendAPI.WebApi.Controllers {
         }
         
         // GET /api/world/{worldId} -> Get details of a single world + objects
-        [HttpGet]
+        [HttpGet("{worldId}")]
         public async Task<IActionResult> GetWorld(int worldId) {
             int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
             var world = await _worldRepo.GetWorldByIdAsync(worldId);
