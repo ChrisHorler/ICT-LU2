@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BackendAPI.WebApi.Controllers {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/world")]
     [Authorize]
     public class WorldController : ControllerBase
     {
