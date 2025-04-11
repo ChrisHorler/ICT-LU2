@@ -23,5 +23,8 @@ namespace BackendAPI.WebApi.Controllers {
             var token = await _authService.LoginAsync(dto);
             return token != null ? Ok(token) : BadRequest("Invalid Credentials.");
         }
+        
+        [HttpGet("ping")]
+        public IActionResult Ping() => Ok("pong");
     }
 }
