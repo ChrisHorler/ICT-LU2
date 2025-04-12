@@ -21,7 +21,10 @@ namespace BackendAPI.WebApi.Controllers {
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserDto dto) {
             var token = await _authService.LoginAsync(dto);
-            return token != null ? Ok(token) : BadRequest("Invalid Credentials.");
+            if (token == null)
+                return BadRequest("Invalid Credentials.");
+
+            return Ok(new { token });
         }
         
         [HttpGet("ping")]
