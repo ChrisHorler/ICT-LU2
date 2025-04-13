@@ -182,22 +182,35 @@ public class WorldApiManager : MonoBehaviour
             request.SetRequestHeader("Authorization", $"Bearer {JwtToken}");
 
         yield return request.SendWebRequest();
-        
-        
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            string raw = request.downloadHandler.text;
-            Debug.Log("CreateWorld response: " + raw);
-            // e.g. returns { "worldId": 123 }
+
+        createWorldUI = FindObjectOfType<CreateWorldUI>();
+
+        if (request.result == UnityWebRequest.Result.Success) {
+            Debug.Log("CreateWorld response: " + request.downloadHandler.text);
         }
-        else
-        {
-            createWorldUI = FindObjectOfType<CreateWorldUI>();
-            createWorldUI.errorText.color = Color.red;
-            createWorldUI.errorText.text = $"Failed to create world: {request.downloadHandler.text}";
-            Debug.LogError($"CreateWorld error: {request.error} | {request.downloadHandler.text}");
+        else {
+            string rawJson = request.downloadHandler.text;
+            Debug.LogError($"CreateWorld error: {rawJson}");
+
+            try {
+                
+                if (rawJson.Contains("The field Name must be a string or array type with a maximum length of '25'")) {
+                    createWorldUI.errorText.color = Color.red;
+                    createWorldUI.errorText.text = "Name can only be 25 characters long.";
+                    yield break;
+                }
+                
+                createWorldUI.errorText.color = Color.red;
+                createWorldUI.errorText.text = "Failed to create world. Please check your input.";
+            }
+            catch (Exception ex) {
+                Debug.LogError($"Error parsing create world response: {ex.Message}");
+                createWorldUI.errorText.color = Color.red;
+                createWorldUI.errorText.text = "Something went wrong.";
+            }
         }
     }
+
 
     public void DeleteWorld(int worldId)
     {
