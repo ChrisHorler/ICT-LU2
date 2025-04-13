@@ -41,9 +41,9 @@ namespace BackendAPI.WebApi.Repositories
             const string sql = @"
                 UPDATE Objects
                 SET Type = @Type
-                    PositionX = @PositionX
-                    PositionY = @PositionY
-                    Rotation = @Rotation
+                    PositionX = @PositionX,
+                    PositionY = @PositionY,
+                    Rotation = @Rotation,
                     Scale = @Scale
                 WHERE Id = @Id";
             
