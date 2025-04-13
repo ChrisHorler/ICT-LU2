@@ -31,7 +31,7 @@ jobs:
         working-directory: backend
 
       - name: Unit Testing
-        run: dotnet test --no-build -c Release ./BackendTests/BackenTests.csproj
+        run: dotnet test --no-build -c Release ./BackendTests/BackendTests.csproj
         working-directory: backend
 
       - name: dotnet publish
