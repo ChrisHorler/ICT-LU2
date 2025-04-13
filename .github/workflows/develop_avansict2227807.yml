@@ -30,7 +30,12 @@ jobs:
         run: dotnet build --configuration Release
         working-directory: backend
 
+      - name: Unit Testing
+        run: dotnet test --no-build --configuration Release
+        working-directory: backend
+
       - name: dotnet publish
+        if: ${{ success() }}
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
         working-directory: backend
 
