@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 366706264}
   - component: {fileID: 366706265}
   - component: {fileID: 366706266}
+  - component: {fileID: 366706267}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -726,15 +727,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512f470e98bcd029abf0030eeb8bd32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldApiManager: {fileID: 0}
   buildOptions:
-  - name: Tree01
-    sprite: {fileID: -4393940562409440244, guid: 3a24b00a960734f8784ad7f71bbfcef2, type: 3}
-  - name: Tree02
-    sprite: {fileID: -3674551241788036843, guid: 3a24b00a960734f8784ad7f71bbfcef2, type: 3}
-  - name: Building01
-    sprite: {fileID: -262734169098887671, guid: 3a24b00a960734f8784ad7f71bbfcef2, type: 3}
-  - name: Building02
-    sprite: {fileID: 2800344384414078577, guid: 3a24b00a960734f8784ad7f71bbfcef2, type: 3}
+  - typeName: blacksmith
+    sprite: {fileID: 21300000, guid: 1f2e9f92fba058773847a84b2a8591be, type: 2}
+  - typeName: house
+    sprite: {fileID: 21300000, guid: 8e6a645d305fe8fb78fca78d2fec871b, type: 2}
+  - typeName: pinetree
+    sprite: {fileID: 21300000, guid: 5777e02e6ac53500195684564be122ef, type: 2}
+  - typeName: normaltree
+    sprite: {fileID: 21300000, guid: 5e3524d98d2c89ae78832adb63d1b577, type: 2}
   buildingPrefab: {fileID: 2515109397671239914, guid: a4a7058eea0002e3c8152d97fb126e84, type: 3}
   buttonParent: {fileID: 1424129520}
   buttonTemplate: {fileID: 2176064088341110324, guid: 1bf7736cb370ed01aa45f5a274d808d2, type: 3}
@@ -763,6 +765,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1896198985}
+--- !u!114 &366706267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366706258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051a443ebb847b6e6a392817a10fb4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+  minX: -10
+  maxX: 10
+  minY: -10
+  maxY: 10
+  backgroundWorld: {fileID: 1160616961}
 --- !u!1 &382462351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574524663}
   - component: {fileID: 574524662}
+  - component: {fileID: 574524664}
   m_Layer: 0
   m_Name: UI-Manager
   m_TagString: Untagged
@@ -1158,6 +1179,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2143307644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574524664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574524661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da736c2384a26c12bb6b01510c8ea7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 2515109397671239914, guid: a4a7058eea0002e3c8152d97fb126e84, type: 3}
+  backgroundWorld: {fileID: 1160616961}
+  knownSprites:
+  - typeName: blacksmith
+    sprite: {fileID: 21300000, guid: 1f2e9f92fba058773847a84b2a8591be, type: 2}
+  - typeName: house
+    sprite: {fileID: 21300000, guid: 8e6a645d305fe8fb78fca78d2fec871b, type: 2}
+  - typeName: pinetree
+    sprite: {fileID: 21300000, guid: 5e3524d98d2c89ae78832adb63d1b577, type: 2}
+  - typeName: normaltree
+    sprite: {fileID: 21300000, guid: 5777e02e6ac53500195684564be122ef, type: 2}
 --- !u!1 &967744126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1443,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 25}
-  m_LocalScale: {x: 50, y: 50, z: 100}
+  m_LocalScale: {x: 30, y: 40, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1453626207}

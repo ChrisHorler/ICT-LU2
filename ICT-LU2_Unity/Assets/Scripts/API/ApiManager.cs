@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -78,7 +79,32 @@ public class ApiManager : MonoBehaviour
             authUI.SetAuthMode(true);
         }
         else {
-            Debug.LogError($"Registration error: {request.error} | {request.downloadHandler.text}");
+            string json = request.downloadHandler.text;
+            Debug.LogError($"Register Error: {json}");
+
+            try {
+                int errorsIndex = json.IndexOf("\"errors\":");
+                if (errorsIndex != -1) {
+                    string errorPart = json.Substring(errorsIndex);
+                    int passwordIndex = errorPart.IndexOf("\"Password\":");
+                    if (passwordIndex != -1) {
+                        int start = errorPart.IndexOf("[", passwordIndex);
+                        int end = errorPart.IndexOf("]", passwordIndex);
+                        if (start != -1 && end != -1) {
+                            string passwordError = errorPart.Substring(start + 2, end - start - 3); // Strips quotes
+                            authUI.ShowError(passwordError); // Show to user
+                            yield break;
+                        }
+                    }
+                }
+
+                // Fallback
+                authUI.ShowError("Registration failed. Please try again.");
+            }
+            catch (Exception e) {
+                Debug.LogError($"Error parsing error response: {e.Message}");
+                authUI.ShowError("Something went wrong.");
+            }
         }
     }
     
@@ -129,6 +155,7 @@ public class ApiManager : MonoBehaviour
             }
         }
         else {
+            authUI.ShowError("Invalid Credentials");
             Debug.LogError($"Login error: {request.error} | {request.downloadHandler.text}");
         }
     }
@@ -205,5 +232,13 @@ public class ApiManager : MonoBehaviour
         else {
             Debug.LogError($"DeleteWorld error: {request.error} | {request.downloadHandler.text}");
         }
+    }
+
+
+    [Serializable]
+    public class ValidationErrorResponse {
+        public string title;
+        public int status;
+        public Dictionary<string, string[]> errors;
     }
 }

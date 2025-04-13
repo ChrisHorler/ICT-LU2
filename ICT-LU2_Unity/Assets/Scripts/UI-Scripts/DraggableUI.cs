@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Sprite sprite;
+    public string typeName;
     public BuildingSystem buildingSystem;
 
     private GameObject dragPreview;
@@ -28,7 +29,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         image.raycastTarget = false;
 
         dragPreviewRect = dragPreview.GetComponent<RectTransform>();
-        dragPreviewRect.sizeDelta = new Vector2(80, 80); // Adjust size as needed
+        dragPreviewRect.sizeDelta = new Vector2(100, 100);
         dragPreviewRect.pivot = new Vector2(0.5f, 0.5f);
 
         UpdatePreviewPosition();
@@ -49,9 +50,8 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPos.z = 0;
-
-            GameObject obj = Instantiate(buildingSystem.buildingPrefab, worldPos, Quaternion.identity);
-            obj.GetComponent<SpriteRenderer>().sprite = sprite;
+            
+            buildingSystem.CreateLocalObjectAndSave(worldPos, typeName, sprite);
         }
     }
 

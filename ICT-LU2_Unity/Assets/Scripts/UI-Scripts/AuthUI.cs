@@ -19,6 +19,8 @@ public class AuthUI : MonoBehaviour {
     public Button switchButton;
     public TMP_Text switchText;
 
+    [SerializeField] private TMP_Text errorText;
+    
     private bool isLoginMode = true;
 
     
@@ -55,6 +57,7 @@ public class AuthUI : MonoBehaviour {
 
     public void SwitchMode() {
         SetAuthMode(!isLoginMode);
+        ShowError("");
     }
     
     public void OnRegistrationButton() {
@@ -65,6 +68,11 @@ public class AuthUI : MonoBehaviour {
         apiManager.LoginUser(usernameField.text, passwordField.text);
     }
 
+    public void ShowError(string message) {
+        errorText.text = message;
+        errorText.gameObject.SetActive(true);
+    }
+    
     private void AutoAssignReferences()
     {
         if (apiManager == null)

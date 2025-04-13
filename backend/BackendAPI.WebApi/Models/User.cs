@@ -17,8 +17,8 @@ namespace BackendAPI.WebApi.Models {
         public int Id { get; set; }
         public int WorldId { get; set; }
         public string Type { get; set; } = string.Empty;
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }
+        public float PositionX { get; set; }
+        public float PositionY { get; set; }
         public float Rotation { get; set; }
         public float Scale { get; set; }
     }

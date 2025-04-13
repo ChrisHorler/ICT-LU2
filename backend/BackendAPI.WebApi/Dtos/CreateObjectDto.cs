@@ -7,10 +7,10 @@ namespace BackendAPI.WebApi.Dtos {
         public string Type { get; set; } = string.Empty;
         
         [Required]
-        public int PositionX { get; set; }
+        public float PositionX { get; set; }
         
         [Required]
-        public int PositionY { get; set; }
+        public float PositionY { get; set; }
         
         [Required]
         public float Rotation { get; set; }

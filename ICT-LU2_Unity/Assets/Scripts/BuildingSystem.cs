@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class BuildingSystem : MonoBehaviour
 {
+    public WorldApiManager worldApiManager;
+    
     [System.Serializable]
     public class BuildOption {
-        public string name;
+        public string typeName;
         public Sprite sprite;
     }
     
@@ -22,9 +24,12 @@ public class BuildingSystem : MonoBehaviour
     public GameObject buttonTemplate;
     
     private Sprite selectedSprite;
+    private string selectedTypeName;
 
     private void Start() {
         PopulateBuildingMenu();
+        
+        worldApiManager = FindObjectOfType<WorldApiManager>();
     }
 
     private void Update() {
@@ -65,6 +70,20 @@ public class BuildingSystem : MonoBehaviour
             DraggableUI draggable = btnObject.AddComponent<DraggableUI>();
             draggable.buildingSystem = this;
             draggable.sprite = option.sprite;
+            draggable.typeName = option.typeName;
+        }
+    }
+
+    public void CreateLocalObjectAndSave(Vector3 position, string typeName, Sprite sprite)
+    {
+        GameObject obj = Instantiate(buildingPrefab, position, Quaternion.identity);
+        obj.GetComponent<SpriteRenderer>().sprite = sprite;
+        
+        int currentWorldId = TempWorldDataHolder.CurrentWorldId; 
+        if (currentWorldId > 0)
+        {
+            worldApiManager.AddObjectToWorld(currentWorldId, typeName, position.x, position.y, 0f, 1f);
+            Debug.Log($"Uploaded Object: {typeName} Position: {position} to World Id: {currentWorldId}");
         }
     }
 
