@@ -7,5 +7,7 @@ namespace BackendAPI.WebApi.Repositories {
         Task<IEnumerable<World>> GetWorldsByOwnerAsync(int ownerId);
         Task<int> CountWorldsByOwnerAsync(int ownerId);
         Task<bool> DeleteWorldAsync(int worldId);
+        
+        Task<bool> WorldNameExistsForOwnerAsync(int ownerId, string name);
     }
 }

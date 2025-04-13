@@ -10,6 +10,7 @@ public class WorldApiManager : MonoBehaviour
     [Header("API Configuration")]
     public string baseUrl = "https://avansict2227807.azurewebsites.net";
 
+    private CreateWorldUI createWorldUI;
     private string JwtToken => ApiManager.JwtToken; // or however you store the token
 
     // -------------
@@ -54,7 +55,7 @@ public class WorldApiManager : MonoBehaviour
 
     [Serializable]
     public class WorldDataDetailResponse {
-        public WorldData worldData;
+        public WorldData world;
         public WorldObjectData[] objects;
     }
 
@@ -141,7 +142,7 @@ public class WorldApiManager : MonoBehaviour
             try
             {
                 var detail = JsonUtility.FromJson<WorldDataDetailResponse>(raw);
-                if (detail != null && detail.worldData != null)
+                if (detail != null && detail.world != null)
                 {
                     OnWorldDataReceived(detail);
                 }
@@ -181,7 +182,8 @@ public class WorldApiManager : MonoBehaviour
             request.SetRequestHeader("Authorization", $"Bearer {JwtToken}");
 
         yield return request.SendWebRequest();
-
+        
+        
         if (request.result == UnityWebRequest.Result.Success)
         {
             string raw = request.downloadHandler.text;
@@ -190,6 +192,9 @@ public class WorldApiManager : MonoBehaviour
         }
         else
         {
+            createWorldUI = FindObjectOfType<CreateWorldUI>();
+            createWorldUI.errorText.color = Color.red;
+            createWorldUI.errorText.text = $"Failed to create world: {request.downloadHandler.text}";
             Debug.LogError($"CreateWorld error: {request.error} | {request.downloadHandler.text}");
         }
     }
@@ -359,7 +364,8 @@ public class WorldApiManager : MonoBehaviour
     // When a world loads successfully, store the data in a static holder and load the "TemplateWorld" scene
     private void OnWorldDataReceived(WorldDataDetailResponse detail) {
         TempWorldDataHolder.WorldData = detail;        
-        TempWorldDataHolder.CurrentWorldId = detail.worldData.id;  
+        TempWorldDataHolder.CurrentWorldId = detail.world.id;  
+        Debug.Log("WorldId set to " + detail.world.id);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex: 2); 
     }
     

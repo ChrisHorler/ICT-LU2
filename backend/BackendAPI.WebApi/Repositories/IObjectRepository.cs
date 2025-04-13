@@ -11,5 +11,6 @@ namespace BackendAPI.WebApi.Repositories
         Task<bool> UpdateObjectAsync(WorldObject obj);
         Task<bool> DeleteObjectAsync(int objectId);
         Task<bool> DeleteObjectsByWorldIdAsync(int worldId);
+        
     }
 }

@@ -58,6 +58,12 @@ namespace BackendAPI.WebApi.Controllers {
             if (worldCount >= 5)
                 return BadRequest("You already have the maximum (5) worlds.");
             
+            // Unique Name Check
+            bool nameExists = await _worldRepo.WorldNameExistsForOwnerAsync(userId, dto.Name);
+            if (nameExists)
+                return BadRequest("A world with that name already exists.");
+            
+            
             // Validate World Size
             if (dto.SizeX < 20 || dto.SizeX > 200 || dto.SizeY < 10 || dto.SizeY > 100)
                 return BadRequest("World size out of valid range.");

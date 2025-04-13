@@ -79,12 +79,10 @@ public class BuildingSystem : MonoBehaviour
         GameObject obj = Instantiate(buildingPrefab, position, Quaternion.identity);
         obj.GetComponent<SpriteRenderer>().sprite = sprite;
         
-        int currentWorldId = TempWorldDataHolder.CurrentWorldId; 
-        if (currentWorldId > 0)
-        {
-            worldApiManager.AddObjectToWorld(currentWorldId, typeName, position.x, position.y, 0f, 1f);
-            Debug.Log($"Uploaded Object: {typeName} Position: {position} to World Id: {currentWorldId}");
-        }
+        int currentWorldId = TempWorldDataHolder.CurrentWorldId;
+        worldApiManager.AddObjectToWorld(currentWorldId, typeName, position.x, position.y, 0f, 0.5f);
+        Debug.Log($"Uploaded Object: {typeName} Position: {position} to World Id: {currentWorldId}");
+        
     }
 
 }

@@ -45,6 +45,7 @@ public class ApiManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 
     // ======================
     // REGISTER
@@ -75,6 +76,7 @@ public class ApiManager : MonoBehaviour
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success) {
+            authUI = FindObjectOfType<AuthUI>();
             Debug.Log($"Register Response: {request.downloadHandler.text}");
             authUI.SetAuthMode(true);
         }

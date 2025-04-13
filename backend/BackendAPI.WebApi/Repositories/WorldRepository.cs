@@ -49,5 +49,13 @@ namespace BackendAPI.WebApi.Repositories {
             var rows = await sqlCon.ExecuteAsync(sql, new { WorldId = worldId });
             return rows > 0;
         }
+        
+        public async Task<bool> WorldNameExistsForOwnerAsync(int ownerId, string name)
+        {
+            const string sql = @"SELECT COUNT(*) FROM Worlds WHERE OwnerId = @OwnerId AND Name = @Name";
+            using var sqlCon = Connection;
+            int count = await sqlCon.ExecuteScalarAsync<int>(sql, new { OwnerId = ownerId, Name = name });
+            return count > 0;
+        }
     }
 }

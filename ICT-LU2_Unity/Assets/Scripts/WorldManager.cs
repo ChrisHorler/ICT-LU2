@@ -21,9 +21,9 @@ public class WorldManager : MonoBehaviour
         }
         
         var detail = TempWorldDataHolder.WorldData;
-        Debug.Log($"Loading world ID = {detail.worldData.id}, Name = {detail.worldData.name}");
+        Debug.Log($"Loading world ID = {detail.world.id}, Name = {detail.world.name}");
         
-        SetupBackground(detail.worldData.sizeX, detail.worldData.sizeY);
+        SetupBackground(detail.world.sizeX, detail.world.sizeY);
 
         foreach (var objData in detail.objects)
         {
