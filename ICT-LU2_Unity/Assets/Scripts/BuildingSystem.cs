@@ -39,25 +39,33 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
-    void PopulateBuildingMenu() {
+    void PopulateBuildingMenu()
+    {
         foreach (Transform child in buttonParent)
             Destroy(child.gameObject);
 
-        foreach (var option in buildOptions) {
+        foreach (var option in buildOptions)
+        {
             GameObject btnObject = Instantiate(buttonTemplate, buttonParent);
-            
+
             Transform iconTransform = btnObject.transform.Find("Icon");
-            if (iconTransform != null) {
+            if (iconTransform != null)
+            {
                 Image iconImage = iconTransform.GetComponent<Image>();
-                if (iconImage != null) {
+                if (iconImage != null)
                     iconImage.sprite = option.sprite;
-                }
             }
-            
-            btnObject.GetComponent<Button>().onClick.AddListener(() => {
+
+            Button btn = btnObject.GetComponent<Button>();
+            btn.onClick.AddListener(() => {
                 selectedSprite = option.sprite;
                 Debug.Log("Selected: " + option.sprite);
             });
+            
+            DraggableUI draggable = btnObject.AddComponent<DraggableUI>();
+            draggable.buildingSystem = this;
+            draggable.sprite = option.sprite;
         }
     }
+
 }

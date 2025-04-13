@@ -8,6 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class ApiManager : MonoBehaviour
 {
+    private static ApiManager instance;
+    
+    public AuthUI authUI;
+    public string currentJwtToken;
+    
     [Header("API Configuration")] 
     [Tooltip("Base URL of the live API")]
     
@@ -21,7 +26,7 @@ public class ApiManager : MonoBehaviour
     }
 
     [Serializable]
-    private class LoginResponse {
+    public class LoginResponse {
         public string token;
     }
 
@@ -29,9 +34,17 @@ public class ApiManager : MonoBehaviour
     private class WorldDto {
         public string name;
     }
-    
-    
-    
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
+    }
+
     // ======================
     // REGISTER
     // ======================
@@ -62,7 +75,7 @@ public class ApiManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success) {
             Debug.Log($"Register Response: {request.downloadHandler.text}");
-          
+            authUI.SetAuthMode(true);
         }
         else {
             Debug.LogError($"Registration error: {request.error} | {request.downloadHandler.text}");
@@ -104,6 +117,7 @@ public class ApiManager : MonoBehaviour
                 if (!string.IsNullOrEmpty(data.token)) {
                     JwtToken = data.token;
                     Debug.Log($"JWT Token Stored: {data.token}");
+                    currentJwtToken = JwtToken;
                     SceneManager.LoadScene(sceneBuildIndex: 1);
                 }
                 else {

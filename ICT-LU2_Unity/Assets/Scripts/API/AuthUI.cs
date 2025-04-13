@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AuthUI : MonoBehaviour {
@@ -19,7 +21,12 @@ public class AuthUI : MonoBehaviour {
 
     private bool isLoginMode = true;
 
-    private void Start() {
+    
+    
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(0.1f);
+        AutoAssignReferences();
         SetAuthMode(true);
         switchButton.onClick.AddListener(SwitchMode);
         confirmButton.onClick.AddListener(OnLoginButton);
@@ -56,5 +63,32 @@ public class AuthUI : MonoBehaviour {
 
     public void OnLoginButton() {
         apiManager.LoginUser(usernameField.text, passwordField.text);
+    }
+
+    private void AutoAssignReferences()
+    {
+        if (apiManager == null)
+            apiManager = FindObjectOfType<ApiManager>();
+
+        if (usernameField == null)
+            usernameField = GameObject.Find("Username-Input")?.GetComponent<TMP_InputField>();
+
+        if (passwordField == null)
+            passwordField = GameObject.Find("Password-Input")?.GetComponent<TMP_InputField>();
+
+        if (titleText == null)
+            titleText = GameObject.Find("Title-Text")?.GetComponent<TMP_Text>();
+
+        if (confirmButton == null)
+            confirmButton = GameObject.Find("Confirmation-Button")?.GetComponent<Button>();
+
+        if (confirmText == null && confirmButton != null)
+            confirmText = confirmButton.GetComponentInChildren<TMP_Text>();
+
+        if (switchButton == null)
+            switchButton = GameObject.Find("Switch-Button")?.GetComponent<Button>();
+
+        if (switchText == null && switchButton != null)
+            switchText = switchButton.GetComponentInChildren<TMP_Text>();
     }
 }
