@@ -40,7 +40,7 @@ namespace BackendAPI.WebApi.Repositories
         public async Task<bool> UpdateObjectAsync(WorldObject obj) {
             const string sql = @"
                 UPDATE Objects
-                SET Type = @Type
+                SET Type = @Type,
                     PositionX = @PositionX,
                     PositionY = @PositionY,
                     Rotation = @Rotation,
