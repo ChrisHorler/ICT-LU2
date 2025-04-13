@@ -26,10 +26,6 @@ jobs:
       - name: Change to backend folder
         run: cd backend
 
-      - name: Clean Dotnet
-        run: dotnet clean
-        working-directory: backend 
-
       - name: Build with dotnet
         run: dotnet build --configuration Release
         working-directory: backend
